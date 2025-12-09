@@ -23,6 +23,7 @@ Write-Host ""
 if ($args[0] -ne "/DisablePausePrompts") { pause }
 Write-Host ""
 Write-Host "This script will attempt to install the following packages:"
+Write-Host "  - Oh My Posh from WinGet"
 Write-Host "  - blender from WinGet"
 Write-Host "  - Java 8 from WinGet"
 Write-Host "  - AutoHotkey from WinGet"
@@ -41,7 +42,6 @@ Write-Host "  - Parsec from WinGet"
 Write-Host "  - Steam from WinGet"
 Write-Host "  - Audacity from WinGet"
 Write-Host "  - Shutter Encoder from WinGet"
-Write-Host "  - Stacher is a modern front-end for the yt-dlp command line tool from WinGet"
 Write-Host "  - Bulk Crap Uninstaller from WinGet"
 Write-Host "  - Auto Editor from Pip"
 Write-Host "  - IrfanView from WinGet"
@@ -72,6 +72,7 @@ $commands_run=0
 $results=""
 
 $commands= @(
+    'cmd.exe /C winget.exe install --id "JanDeDobbeleer.OhMyPosh" --exact --source winget --accept-source-agreements --disable-interactivity --silent --accept-package-agreements --force',
     'cmd.exe /C winget.exe install --id "BlenderFoundation.Blender" --exact --source winget --accept-source-agreements --disable-interactivity --silent --accept-package-agreements --force',
     'cmd.exe /C winget.exe install --id "Oracle.JavaRuntimeEnvironment" --exact --source winget --accept-source-agreements --disable-interactivity --scope machine --silent --accept-package-agreements --force',
     'cmd.exe /C winget.exe install --id "AutoHotkey.AutoHotkey" --exact --source winget --accept-source-agreements --disable-interactivity --scope machine --silent --accept-package-agreements --force --scope machine',
