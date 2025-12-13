@@ -11,7 +11,6 @@ $env:Path += ";$Tools;$ToolsExt;$ffmpeg;$ytdlp"
 Write-Host "Loaded external tools : ffmpeg, yt-dlp" -ForegroundColor Cyan
 Import-Module -Name Terminal-Icons
 
-# --- PATHEXT ---
 if ($env:PATHEXT -notlike "*.PY*") {
     $env:PATHEXT += ";.PY"
 }
@@ -27,16 +26,14 @@ function Tools {
 
 function Show-Tools {
     if (Test-Path -Path $Tools) {
-        Write-Host "Contenu de Tools :" -ForegroundColor Cyan
         Get-ChildItem -Path $Tools | Format-Table -AutoSize | Out-String -Stream | Where-Object { $_ -notmatch "Directory: " }
     }
     else {
         Write-Warning "Le dossier 'pathTools' est introuvable. Vérifiez que le lecteur Z: est bien connecté."
     }
 }
+# --- OH-MY-POSH ---
+oh-my-posh init pwsh --config "C:\Users\Ephraem\.config\powershell\myposh.omp.json" | Invoke-Expression
 
 # --- EXECUTION ---
 Show-Tools
-
-# --- OH-MY-POSH ---
-oh-my-posh init pwsh --config "C:\Users\Ephraem\.config\ohmyposh\myposh.omp.json" | Invoke-Expression
